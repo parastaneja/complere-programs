@@ -1,14 +1,14 @@
+// eslint-disable-next-line import/no-unresolved
 const express = require('express');
+
+const routes = express.Router({ mergeParams: true });
 const employeeController = require('../controllers/employee');
 
-const router = express.Router();
+routes.get('/', employeeController.getEmployeeList);
 
-router.get('/', async (req, res) => {
-  const employeeList = await employeeController.getEmployeeList();
-  res.send({
-    success: 'true',
-    data: employeeList,
-  });
-});
+// EmployeeDetails API
+// Delete
+// Add employee
+// Update employee API
 
-module.exports = router;
+module.exports = routes;

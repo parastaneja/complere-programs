@@ -7,6 +7,9 @@ const getEmployeeList = async () => {
   const query = `
     SELECT * FROM ${config.mysql.schema}.employee order by employee_id desc
     `;
+  console.log({
+    query,
+  });
   const { rows } = await conn.query(query);
   return rows;
 };
